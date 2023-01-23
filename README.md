@@ -2,22 +2,22 @@
 
 ## Introduction
 
-DevOps is a journey not a destination. Implementing Infrastructure-as-Code is one of the first steps you will take on your DevOps journey!
+The Azure landing zones Terraform module is designed to accelerate deployment of platform resources based on the Azure landing zones conceptual architecture using Terraform.
 
-When implementing an application environment in the cloud, it is important to have a repeatable way to deploy the underlying infrastructure components as well as your software into the target environment.  This includes resources such as:
-- Virtual Networks, Network Security Groups (Firewalls), Public IPs, Virtual Machines, Storage (Disks)
-- PaaS Services (Azure SQL, App Service, etc)
-- Configuration Management (installing & configuring software on VMs)
+![A conceptual architecture diagram highlighting the design areas covered by the Azure landing zones Terraform module.](./media/alz-tf-module-overview.png)
 
-The best way to make deployments repeatable is to define them with code, hence the term "Infrastructure as Code" (aka IAC).  There are multiple technologies that enable you to define your IaC. Some of these include:
-- Azure Resource Manager (ARM) Templates
-- PowerShell Desired State Configuration (DSC)
-- HashiCorp's Terraform & Packer
-- Ansible, Chef, Puppet, Salt Stack, and others
+This is currently split logically into the following capabilities within the module 
 
-Terraform is a tool (templating language) for building, changing, and versioning infrastructure safely and efficiently. Using Terraform, you can automate the tasks of building, changing and de-provisioning the infrastructure
+| Module capability | Scope | Design area |
+| :--- | :--- | :--- |
+| Core Resources | Management group and subscription organization | Resource organization |
+| Management Resources | Management subscription | Management |
+| Connectivity Resources | Connectivity subscription | Network topology and connectivity |
+| Identity Resources | Identity subscription | Identity and access management |
 
-This hack is focused on using Terraform to implement your IaC. It does not mean this is the only way to implement IaC.  It is just one way amongst many. If you want to learn how to do IaC in Azure with other technologies, try one of our other IaC hacks for [ARM Templates](../011-InfraAsCode-ARM-DSC) or [Ansible](../013-InfraAsCode-Ansible/).
+Using a very [simple initial configuration](#maintf), the module will deploy a management group hierarchy based on the above diagram.
+This includes the recommended governance baseline, applied using Azure Policy and Access control (IAM) resources deployed at the management group scope.
+The default configuration can be easily extended to meet differing requirements, and includes the ability to deploy platform resources in the `management` and `connectivity` subscriptions.
 
 
 ## Learning Objectives
@@ -25,19 +25,19 @@ This hack will help you learn:
 - How Terraform works to deploy infrastructure in Azure
 - How Terraform can be used to trigger the install of software on a VM
 
-## Challenges
-0. [Get your machine ready](./Student/prerequisite.md) 
+## Steps
+1. [Get your machine ready](./Student/01-prerequisite.md) 
    - Configure Terraform on Linux subsystem, credentials
-1. ["Hello World" Terraform](./Student/readme.md)
-   - Create an Azure resource group using Terraform 
-1. [Deploy a Virtual Network](./Student/readme.md)
-   - Learn how to find Terraform HCL syntax to deploy an Azure resource
-1. [Open Some Ports](./Student/readme.md)
-   - Learn about variables, dependencies, idempotency
-1. [Create a Linux Virtual Machine](./Student/readme.md)
-   - Learn what an Azure Virtual Machine is composed of
-1. [Use Packer to Create a Linux image with NGINX installed](./Student/readme.md)
-   - Learn about custom build images with Packer
+1. [Terraform remote storage for state files](./Student/readme.md)
+   - Create an Azure storage account resource for Terraform 
+1. [Deploy the Azure Landing Zone Management Group hierarchy](./Student/readme.md)
+   - Lean how to deploy Azure Management Groups and Azure Policy with the terraform module
+1. [Deploy the Azure Landing Zone management resources](./Student/readme.md)
+   - Learn how to deploy management resources (Log Analytics) with the terraform module
+1. [Deploy the Azure Landing Zone connectivity resources](./Student/readme.md)
+   - Learn how to deploy connectivity resources (Hub and Spoke) with the terraform module
+1. [Deploy the Azure Landing Zone identity resources](./Student/readme.md)
+   - Learn how to deploy identity resources with the terraform module
 
 ## Prerequisites
 - Your own Azure subscription with Owner access
