@@ -3,11 +3,20 @@ This storage account will be used to store the state of each deployment step and
 
 Create some variables to start with
 
+For Bash
 ```
 REGION=canadacentral
 STORAGEACCOUNTNAME=tfstate$RANDOM
 CONTAINERNAME=hol
 TFSTATE_RG=tfstate
+```
+
+For PowerShell
+```
+$REGION="canadacentral"
+$STORAGEACCOUNTNAME="tfstate$RANDOM"
+$CONTAINERNAME="hol"
+$TFSTATE_RG="tfstate"
 ```
 
 Create a Resource Group:
