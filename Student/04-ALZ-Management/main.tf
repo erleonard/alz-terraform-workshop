@@ -24,12 +24,6 @@ module "enterprise_scale" {
 
   deploy_core_landing_zones = false
 
-  deploy_connectivity_resources = var.deployConnectivityResources
-  subscription_id_connectivity  = var.connectivitySubscriptionId
-
-  deploy_identity_resources = var.deployIdentityResources
-  subscription_id_identity  = var.identitySubscriptionId
-
   deploy_management_resources = var.deployManagementResources
   subscription_id_management  = var.managementSubscriptionId
   configure_management_resources = local.configure_management_resources
