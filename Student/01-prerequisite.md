@@ -7,7 +7,7 @@ This is the starting point for the instructions on deploying the [Azure Landing 
 1. Latest [Azure CLI installed](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 1. An Azure subscription.
 1. [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview) installed
-1. [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) cli installed
+1. [Terraform](https://developer.hashicorp.com/terraform/tutorials/azure-get-started/install-cli) cli installed
 1. [GitHub Account](https://github.com/), if you do not have one, a free account can be created.
 
 # Configuration
@@ -18,7 +18,7 @@ The Azure CLI's default authentication method for logins uses a web browser and 
 
 Run the **login** command.
 
-```bash
+```
 az login
 ```
 the CLI can open your default browser, it will initiate authorization code flow and open the default browser to load an Azure sign-in page.
@@ -28,12 +28,12 @@ Sign in with your account credentials in the browser.
 ## Set Subscription
 
 Get a list of subscriptions for the logged in account.
-```Bash
+```
 az account list --output table
 ```
 
 Set a subscription by name to be the current active subscription
-```Bash
+```
 az account set --subscription "My Demos"
 ```
 **OR**
@@ -41,6 +41,15 @@ Set a subscription by id to be the current active subscription
 
 ```Bash
 az account set --subscription "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
+
+## Clone GitHub Repository
+
+```
+git clone https://github.com/erleonard/alz-terraform-workshop.git 
+
+# Go to directory
+cd alz-terraform-workshop
 ```
 
 ### Next step

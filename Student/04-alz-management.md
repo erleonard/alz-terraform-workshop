@@ -15,7 +15,7 @@ The following will be created:
 
 Navigate to "/Student/04-ALZ-Management" folder
 ```
-cd ./04-ALZ-Management
+cd ../04-ALZ-Management
 ```
 
 In the "variables.tf" file, update the **root_id, root_name, managementSubscriptionId and security_alerts_email_address** variables to reflect your assigned team name that you will be using throughout the rest of the deployment.  

@@ -9,9 +9,9 @@ The following will be created:
 
 
 
-Navigate to "/Student/03-ALZ-Core" folder
+Navigate to "/Student/05-ALZ-Connectivity" folder
 ```
-cd ./03-ALZ-Core
+cd ../05-ALZ-Connectivity
 ```
 
 In the "variables.tf" file, update the **root_id, root_name and connectivitySubscriptionId** variables to reflect your assigned team name that you will be using throughout the rest of the deployment.  
